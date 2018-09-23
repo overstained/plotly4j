@@ -1,0 +1,19 @@
+<html>
+<head>
+	<script src="plotly-latest.min.js"></script>
+	<script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script>
+	<script>
+	    function scatterPlot(config) {
+	    	config = JSON.parse(config);
+			TESTER = document.getElementById('tester');
+			Plotly.plot( TESTER, [{
+			x: config.x,
+			y: config.y }], {
+			margin: { t: 0 } } );	
+	    }
+	</script>
+</head>
+<body>
+<div id="tester" style="width:600px;height:400px;"></div>
+</body>
+</html>
