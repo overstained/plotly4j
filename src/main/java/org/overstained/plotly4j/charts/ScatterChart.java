@@ -1,13 +1,13 @@
 package org.overstained.plotly4j.charts;
 
-import org.overstained.plotly4j.charts.configurations.ScatterChartConfiguration;
+import org.overstained.plotly4j.charts.configurations.ScatterChartConfig;
 import org.overstained.plotly4j.charts.utils.ChartUtils;
 
 public class ScatterChart extends AbstractChart<ScatterChart>{
-	private ScatterChartConfiguration configuration;
+	private ScatterChartConfig configuration;
 	
 	ScatterChart() {
-		this.configuration =  new ScatterChartConfiguration();
+		this.configuration =  new ScatterChartConfig();
 		super.setConfiguration(this.configuration);
 	}
 	

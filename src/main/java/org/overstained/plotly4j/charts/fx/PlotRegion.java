@@ -28,8 +28,6 @@ class PlotRegion extends Region {
             if(newState==State.SUCCEEDED){
             	JSObject window = (JSObject) webEngine.executeScript("window");
             	callback.accept(window);
-                /*
-                window.call("test", new int[] {1, 2, 3, 4, 5}, new int[] {1,4,9,16,25});*/
             }
         });
     }

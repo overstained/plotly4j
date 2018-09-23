@@ -2,13 +2,13 @@ package org.overstained.plotly4j.charts;
 
 import java.util.function.Consumer;
 
-import org.overstained.plotly4j.charts.configurations.BasicChartConfiguration;
+import org.overstained.plotly4j.charts.configurations.ChartConfig;
 import org.overstained.plotly4j.charts.fx.PlotApp;
 
 import netscape.javascript.JSObject;
 
 public abstract class AbstractChart<T extends AbstractChart<T>> implements Chart<T>{
-	private BasicChartConfiguration configuration;
+	private ChartConfig configuration;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -29,7 +29,7 @@ public abstract class AbstractChart<T extends AbstractChart<T>> implements Chart
 		PlotApp.show(configuration, callback);
 	}
 	
-	protected void setConfiguration(BasicChartConfiguration configuration) {
+	protected void setConfiguration(ChartConfig configuration) {
 		this.configuration = configuration;
 	}
 	

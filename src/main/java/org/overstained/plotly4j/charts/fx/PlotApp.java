@@ -2,7 +2,7 @@ package org.overstained.plotly4j.charts.fx;
 
 import java.util.function.Consumer;
 
-import org.overstained.plotly4j.charts.configurations.BasicChartConfiguration;
+import org.overstained.plotly4j.charts.configurations.ChartConfig;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -16,7 +16,7 @@ import netscape.javascript.JSObject;
  */
 public class PlotApp extends Application {
 	private static Consumer<JSObject> callback;
-	private static BasicChartConfiguration configuration;
+	private static ChartConfig configuration;
 	
 	private Scene scene;
 
@@ -29,7 +29,7 @@ public class PlotApp extends Application {
 		stage.show();
 	}
 
-	public static void show(BasicChartConfiguration configuration, Consumer<JSObject> callback) {
+	public static void show(ChartConfig configuration, Consumer<JSObject> callback) {
 		PlotApp.callback = callback;
 		PlotApp.configuration = configuration;
 		launch(new String[] {});
