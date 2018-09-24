@@ -1,16 +1,16 @@
 package org.overstained.plotly4j.enums;
 
-public enum Orientation {
-	VERTICAL("v"),
-	HORIZONTAL("h");
-	
+public enum Orientation implements ChartEnum {
+	VERTICAL("v"), HORIZONTAL("h");
+
 	private String value;
-	
+
 	Orientation(String value) {
-		this.value =  value;
+		this.value = value;
 	}
-	
-	String getValue() {
+
+	@Override
+	public String getValue() {
 		return this.value;
 	}
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -14,15 +15,20 @@ import lombok.ToString;
 @ToString
 @JsonInclude(Include.NON_NULL)
 public final class FontConfig {
-	private List<String> family;
-	private List<Integer> size;
+	@JsonProperty("family")
+	private List<String> families;
+	
+	@JsonProperty("size")
+	private List<Integer> sizes;
+	
+	@JsonProperty("color")
 	private String color;
 	
 	private FontConfig() {
-		this.family = new LinkedList<>();
-		this.family.add("Arial, sans-serif");
-		this.size = new LinkedList<>();
-		this.size.add(13);
+		this.families = new LinkedList<>();
+		this.families.add("Arial, sans-serif");
+		this.sizes = new LinkedList<>();
+		this.sizes.add(13);
 	};
 	
 	public static final FontConfig define() {
@@ -43,9 +49,9 @@ public final class FontConfig {
 	 * @param families - Enumeration of font families.
 	 * @return FontConfig
 	 */
-	public FontConfig family(final String... families) {
-		this.family = new LinkedList<>();
-		Collections.addAll(this.family, families);
+	public FontConfig families(final String... families) {
+		this.families = new LinkedList<>();
+		Collections.addAll(this.families, families);
 		return this;
 	}
 	
@@ -55,8 +61,8 @@ public final class FontConfig {
 	 * @return FontConfig
 	 */
 	public FontConfig size(final Integer... sizes) {
-		this.size = new LinkedList<>();
-		Collections.addAll(this.size, sizes);
+		this.sizes = new LinkedList<>();
+		Collections.addAll(this.sizes, sizes);
 		return this;
 	}
 	

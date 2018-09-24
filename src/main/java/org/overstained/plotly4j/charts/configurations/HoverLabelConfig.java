@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -12,10 +13,17 @@ import lombok.ToString;
 @ToString
 @JsonInclude(Include.NON_NULL)
 public final class HoverLabelConfig {
-	private String bgcolor;
-	private String bordercolor;
+	@JsonProperty("bgcolor")
+	private String bgColor;
+	
+	@JsonProperty("borderColor")
+	private String borderColor;
+	
+	@JsonProperty("font")
 	private FontConfig font;
-	private List<Integer> namelength;
+	
+	@JsonProperty("namelength")
+	private List<Integer> nameLengths;
 	
 	private HoverLabelConfig() {};
 	
@@ -25,21 +33,21 @@ public final class HoverLabelConfig {
 	
 	/**
 	 * Sets the background color of the hover labels for this trace
-	 * @param bgcolor
+	 * @param bgColor
 	 * @return HoverLabelConfig
 	 */
-	public HoverLabelConfig bgcolor(final String bgcolor) {
-		this.bgcolor = bgcolor;
+	public HoverLabelConfig bgcolor(final String bgColor) {
+		this.bgColor = bgColor;
 		return this;
 	}
 	
 	/**
 	 * Sets the border color of the hover labels for this trace.
-	 * @param bordercolor
+	 * @param borderColor
 	 * @return HoverLabelConfig
 	 */
-	public HoverLabelConfig bordercolor(final String bordercolor) {
-		this.bordercolor = bordercolor;
+	public HoverLabelConfig borderColor(final String borderColor) {
+		this.borderColor = borderColor;
 		return this;
 	}
 	

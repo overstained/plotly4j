@@ -1,14 +1,21 @@
 package org.overstained.plotly4j;
 
-import org.overstained.plotly4j.charts.Chart;
+import static java.util.Arrays.asList;
+
+import org.overstained.plotly4j.charts.configurations.ChartConfig;
+import org.overstained.plotly4j.charts.configurations.ScatterDataConfig;
+import org.overstained.plotly4j.enums.Mode;
 
 public class Test {
 	public static final void main(String[] args) {
-		Chart.scatter()
-		.withTitle("test")
-		.withSize(600, 300)
-		.withX(new double[] {1,2,3,4})
-		.withY(new double[] {1,4,9,16})
-		.show();
+		Chart.show(ChartConfig
+				.define()
+				.data(ScatterDataConfig
+						.define()
+						.x(asList(1,2,3))
+						.y(asList(1,2,4))
+						.name("plot")
+						.opacity(0.5)
+						.modes(Mode.TEXT, Mode.LINES)));
 	}
 }
