@@ -1,7 +1,11 @@
 function plotConfig(config) {
-	console.log(config);
 	TESTER = document.getElementById('plot-area');
+	parsedConfig = JSON.parse(config);
+	TESTER.style.width = parsedConfig.layout.width + 'px';
+	TESTER.style.height = parsedConfig.layout.height + 'px';
 	if(TESTER) {
-		Plotly.plot( TESTER, JSON.parse(config));
+		Plotly.plot( TESTER, parsedConfig, {} , {
+			modeBarButtonsToRemove: []
+		});
 	}
 }

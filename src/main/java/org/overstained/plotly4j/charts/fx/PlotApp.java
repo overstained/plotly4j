@@ -6,7 +6,6 @@ import org.overstained.plotly4j.charts.configurations.ChartConfig;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import netscape.javascript.JSObject;
 
@@ -22,9 +21,8 @@ public class PlotApp extends Application {
 
 	@Override
 	public void start(Stage stage) {
-		stage.setTitle(configuration.getTitle());
-		scene = new Scene(new PlotRegion(callback), configuration.getWidth(), configuration.getHeight(),
-				Color.web("#666970"));
+		stage.setTitle(configuration.getLayout().getTitle());
+		scene = new Scene(new PlotRegion(callback), configuration.getLayout().getWidth()+50, configuration.getLayout().getHeight()+50);
 		stage.setScene(scene);
 		stage.show();
 	}

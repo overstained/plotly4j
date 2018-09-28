@@ -37,14 +37,4 @@ class PlotRegion extends Region {
 		double h = getHeight();
 		layoutInArea(browser, 0, 0, w, h, 0, HPos.CENTER, VPos.CENTER);
 	}
-
-	@Override
-	protected double computePrefWidth(double height) {
-		return 750;
-	}
-
-	@Override
-	protected double computePrefHeight(double width) {
-		return 500;
-	}
 }

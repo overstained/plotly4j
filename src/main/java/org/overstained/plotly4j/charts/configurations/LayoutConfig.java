@@ -1,7 +1,10 @@
 package org.overstained.plotly4j.charts.configurations;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -10,24 +13,42 @@ import lombok.ToString;
 @ToString
 @JsonInclude(Include.NON_NULL)
 public final class LayoutConfig {
+	@JsonProperty("font")
 	private FontConfig font;
+	@JsonProperty("title")
 	private String title;
-	private FontConfig titlefont;
+	@JsonProperty("titlefont")
+	private FontConfig titleFont;
+	@JsonProperty("autosize")
 	private boolean autosize;
+	@JsonProperty("width")
 	private int width;
+	@JsonProperty("height")
 	private int height;
-	private MarginConfig margin;/*
-	private String paper_bgcolor;
-	private String plot_bgcolor;
+	@JsonProperty("margin")
+	private MarginConfig margin;
+	@JsonProperty("paper_bgcolor")
+	private String paperBgColor;
+	@JsonProperty("plot_bgcolor")
+	private String plotBgColor;
+	@JsonProperty("separators")
 	private String separators;
-	private boolean hidesources;
-	private boolean showlegend;
-	private List<String> colorway;*/
+	@JsonProperty("hidesources")
+	private boolean hideSources;
+	@JsonProperty("showlegend")
+	private boolean showLegend;
+	@JsonProperty("colorway")
+	private List<String> colorway;
 	
 	private LayoutConfig() {
+		this.title = "Plot";
 		this.width = 700;
 		this.height = 450;
 	};
+	
+	public static final LayoutConfig define() {
+		return new LayoutConfig();
+	}
 	
 	/**
 	 * Sets the global font. Note that fonts used in 
@@ -55,8 +76,8 @@ public final class LayoutConfig {
 	 * @param font
 	 * @return LayoutConfig
 	 */
-	public LayoutConfig titlefont(final FontConfig titlefont) {
-		this.titlefont = titlefont;
+	public LayoutConfig titleFont(final FontConfig titleFont) {
+		this.titleFont = titleFont;
 		return this;
 	}
 	

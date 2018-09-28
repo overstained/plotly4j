@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,19 +15,14 @@ import lombok.ToString;
 @ToString
 @JsonInclude(Include.NON_NULL)
 public final class ChartConfig {
-	@JsonIgnore
-	private String title;
-	@JsonIgnore
-	private int width;
-	@JsonIgnore
-	private int height;
-	
 	@JsonProperty("data")
 	private List<BasicDataConfig<?>> data;
 	@JsonProperty("layout")
 	private LayoutConfig layout;
 	
-	private ChartConfig() {};
+	private ChartConfig() {
+		this.layout = LayoutConfig.define();
+	};
 	
 	public static final ChartConfig define() {
 		return new ChartConfig();
